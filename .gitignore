@@ -1,0 +1,45 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build folders
+bin/
+obj/
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Logs
+Logs/
+*.log
+
+# Test Results
+TestResults/
+
+# NuGet
+*.nupkg
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Environment files
+.env
+
+# Publish
+publish/
+
+# Docker
+docker-compose.override.yml
+
+# Others
+*.cache
+
+# Local configuration
+appsettings.*.json
+!appsettings.json
+
