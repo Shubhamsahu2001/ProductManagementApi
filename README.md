@@ -45,7 +45,15 @@ A RESTful Product Management API built with **ASP.NET Core 8**, following **Clea
 - Moq
 
 ---
+## Prerequisites
+Before running the project, ensure you have the following installed:
 
+- .NET 8 SDK
+- SQL Server
+- Visual Studio 2022 (or later)
+- Docker Desktop (optional)
+
+---
 ## Project Structure
 
 ```
@@ -135,7 +143,7 @@ GET /api/v1.0/Products?page=1&pageSize=5
 ## Running the Project
 ## Configuration
 
-Before running the application, update the SQL Server connection string to match your local environment.
+Update the SQL Server connection string in `appsettings.json` to match your local SQL Server instance.
 
 Example:
 
@@ -145,7 +153,42 @@ Example:
 }
 ```
 
-The application uses SQL Server with Entity Framework Core.
+After updating the connection string, run the database migrations before starting the application.
+
+---
+
+## API Endpoints
+
+### Authentication
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/v1.0/Auth/login` | Authenticate user and generate JWT |
+
+### Products
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1.0/Products` | Get all products |
+| GET | `/api/v1.0/Products/{id}` | Get product by ID |
+| POST | `/api/v1.0/Products` | Create a product |
+| PUT | `/api/v1.0/Products/{id}` | Update a product |
+| DELETE | `/api/v1.0/Products/{id}` | Delete a product |
+
+---
+
+## Authentication Flow
+
+1. Call `POST /api/v1.0/Auth/login`.
+2. Copy the returned JWT access token.
+3. Click the **Authorize** button in Swagger.
+4. Enter:
+
+Bearer <your_token>
+
+5. Access protected endpoints.
+
+---
 
 ### Clone Repository
 
@@ -175,24 +218,23 @@ dotnet run
 
 ## Docker
 
-Build
+Build the application:
 
 ```bash
 docker compose build
 ```
 
-Run
+Run the containers:
 
 ```bash
 docker compose up
 ```
 
-Stop
+Stop the containers:
 
 ```bash
 docker compose down
 ```
-
 ---
 
 ## Testing
@@ -221,8 +263,16 @@ Structured logging is implemented using Serilog.
 
 ---
 
+## License
+
+This project was created as part of a technical assessment and is intended for demonstration purposes.
+
+---
+
 ## Author
 
 **Shubham Sahu**
 
 MCA Graduate | ASP.NET Core Developer
+
+GitHub: https://github.com/Shubhamsahu2001
